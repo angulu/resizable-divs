@@ -49,8 +49,6 @@ class Resize extends Component {
           currentPanel: null
         })
 
-        console.log("stop", this.state.currentPanel, this.state.delta);
-
       }
     }
     
@@ -65,11 +63,9 @@ class Resize extends Component {
         let temp_0 = temp[currentPanel]
         let temp_1 = temp[adjacentPanel]
 
-        let delta = event.clientX - initialPos
+        let delta = event.clientX - initialPos, current, adjacent
 
         let previous = previous_delta ? previous_delta : delta
-
-        console.log("X", event.clientX, temp_0, temp_1, adjacentPanel);
 
         // if column is extending right columns (when delta is positive)
         if ( delta > 0 ) {
@@ -79,20 +75,24 @@ class Resize extends Component {
                 temp_0 = 0
 
                 if (temp.length > currentPanel + 1) {
-                    console.log("hehe", temp.length, currentPanel + 1);
 
                     if (currentPanel !== temp.length - 1) {
-                        console.log("cur",currentPanel);
-                        this.setState((prevState) => ({
-                            currentPanel: prevState.currentPanel++
-                        }))
+
+                        current = currentPanel++
+
+                        // this.setState((prevState) => ({
+                        //     currentPanel: prevState.currentPanel++
+                        // }))
+
+                        this.setState({
+                            currentPanel: current
+                        })
                     } 
 
                     
 
                 } else {
                     temp_1 += temp_0
-                    console.log("EXCEEEDING hehe");
                 }
 
             } else {
@@ -107,14 +107,18 @@ class Resize extends Component {
                 temp_1 = 0
 
                 if (currentPanel - 1 !== 0) {
-                    console.log("hihi", currentPanel - 1);
 
                     if (adjacentPanel !== 0) {
-                    console.log("adj", adjacentPanel);
 
-                        this.setState((prevState) => ({
-                            adjacentPanel: prevState.adjacentPanel--
-                        }))
+                        adjacent = adjacentPanel--;
+
+                        // this.setState((prevState) => ({
+                        //     adjacentPanel: prevState.adjacentPanel--
+                        // }))
+
+                        this.setState({
+                            adjacentPanel: adjacent
+                        })
                     }
 
 

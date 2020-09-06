@@ -40,8 +40,6 @@ class App extends Component{
 
   deleteColumn = (name) => {
 
-    console.log(name);
-
     this.setState(prevState => ({
       columns: prevState.columns.filter( item => item !== name )
     }))
