@@ -78,7 +78,7 @@ class Resize extends Component {
 
                     if (currentPanel !== temp.length - 1) {
 
-                        current = currentPanel++
+                        current = currentPanel+1
 
                         // this.setState((prevState) => ({
                         //     currentPanel: prevState.currentPanel++
@@ -110,7 +110,7 @@ class Resize extends Component {
 
                     if (adjacentPanel !== 0) {
 
-                        adjacent = adjacentPanel--;
+                        adjacent = adjacentPanel-1;
 
                         // this.setState((prevState) => ({
                         //     adjacentPanel: prevState.adjacentPanel--
