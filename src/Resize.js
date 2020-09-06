@@ -69,7 +69,7 @@ class Resize extends Component {
 
         let previous = previous_delta ? previous_delta : delta
 
-        console.log("X", event.clientX, temp_0, temp_1);
+        console.log("X", event.clientX, temp_0, temp_1, adjacentPanel);
 
         // if column is extending right columns (when delta is positive)
         if ( delta > 0 ) {
@@ -81,9 +81,14 @@ class Resize extends Component {
                 if (temp.length > currentPanel + 1) {
                     console.log("hehe", temp.length, currentPanel + 1);
 
-                    this.setState((prevState) => ({
-                        currentPanel: prevState.currentPanel++
-                    }))
+                    if (currentPanel !== temp.length - 1) {
+                        console.log("cur",currentPanel);
+                        this.setState((prevState) => ({
+                            currentPanel: prevState.currentPanel++
+                        }))
+                    } 
+
+                    
 
                 } else {
                     temp_1 += temp_0
@@ -104,9 +109,14 @@ class Resize extends Component {
                 if (currentPanel - 1 !== 0) {
                     console.log("hihi", currentPanel - 1);
 
-                    this.setState((prevState) => ({
-                        adjacentPanel: prevState.adjacentPanel--
-                    }))
+                    if (adjacentPanel !== 0) {
+                    console.log("adj", adjacentPanel);
+
+                        this.setState((prevState) => ({
+                            adjacentPanel: prevState.adjacentPanel--
+                        }))
+                    }
+
 
                 }
                 else {
@@ -166,7 +176,7 @@ class Resize extends Component {
     
     render() {
 
-      const { panels, delta, currentPanel } = this.state;
+      const { panels } = this.state;
 
       const rest = this.props.children;
 
