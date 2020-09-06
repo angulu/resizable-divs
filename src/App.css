@@ -1,38 +1,64 @@
-.App {
-  text-align: center;
+.button {
+    background-color: transparent;
+    border: 1px solid lightsalmon;
+    border-radius: 5px;
+    margin: 10px;
+    padding: 5px 10px;
+    outline: none;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.button:hover {
+    background-color: lightsalmon;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.column {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    min-height: 150px;
+    overflow: hidden;
+    font-size: 10px; 
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+.panel-container {
+    display: flex;
+    min-height: 150px;
+    min-width: 100%;
+    position: relative;
+    top: 50px;
 }
 
-.App-link {
-  color: #61dafb;
+.panel {
+    background: white;
+    border: 1px solid gray;
+    min-width: 0px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.panel:first-child {
+
+}
+
+.resizer {
+    width: 8px;
+    background: darkGray;
+    border-top: 1px solid gray;
+    border-bottom: 1px solid gray;
+    position: relative;
+    /* cursor: col-resize; */
+    flex-shrink: 0;
+}
+
+.right {
+    float: right;
+}
+
+::selection {
+    color: none;
+    background: none;
+}
+/* For Mozilla Firefox */
+::-moz-selection {
+    color: none;
+    background: none;
 }
